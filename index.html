@@ -402,7 +402,7 @@
           <div class="field-label"><span>C:\&gt;</span> YOUR MESSAGE</div>
           <textarea id="poster-msg" placeholder="Write your birthday message to Declan here..." maxlength="500"></textarea>
         </div>
-        <button class="submit-btn" onclick="postMessage()">POST MESSAGE ▶▶</button>
+        <button class="submit-btn" onclick="submitBirthdayMessage()">POST MESSAGE ▶▶</button>
       </div>
     </div>
 
@@ -552,7 +552,7 @@ onValue(messagesRef, (snapshot) => {
   renderFeed([...seededMessages, ...familyMessages]);
 });
 
-function postMessage() {
+function submitBirthdayMessage() {
   const nameEl = document.getElementById('poster-name');
   const msgEl  = document.getElementById('poster-msg');
   const name = nameEl.value.trim();
@@ -668,7 +668,7 @@ onValue(messagesRef, (snapshot) => {
   renderFeed([...seededMessages, ...familyMessages]);
 });
 
-function postMessage() {
+function submitBirthdayMessage() {
   const nameEl = document.getElementById('poster-name');
   const msgEl  = document.getElementById('poster-msg');
   const name = nameEl.value.trim();
