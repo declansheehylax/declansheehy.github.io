@@ -376,7 +376,7 @@
     <div class="pw-box-header">[ AUTHORIZED ACCESS ONLY ]</div>
     <div class="pw-box-body">
       <input type="password" id="pw-input" placeholder="••••••••••" autocomplete="off" />
-      <button class="pw-btn" onclick="checkPassword()">ENTER ▶▶</button>
+      <button class="pw-btn" id="pw-btn">ENTER ▶▶</button>
       <div class="pw-error" id="pw-error"></div>
     </div>
   </div>
@@ -402,7 +402,7 @@
           <div class="field-label"><span>C:\&gt;</span> YOUR MESSAGE</div>
           <textarea id="poster-msg" placeholder="Write your birthday message to Declan here..." maxlength="500"></textarea>
         </div>
-        <button class="submit-btn" onclick="submitBirthdayMessage()">POST MESSAGE ▶▶</button>
+        <button class="submit-btn" id="submit-btn">POST MESSAGE ▶▶</button>
       </div>
     </div>
 
@@ -629,8 +629,13 @@ if (sessionStorage.getItem('auth') === '1' || isPreview) {
 
 // Allow Enter key on password field
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('pw-btn').addEventListener('click', checkPassword);
+  document.getElementById('submit-btn').addEventListener('click', submitBirthdayMessage);
   document.getElementById('pw-input').addEventListener('keydown', e => {
     if (e.key === 'Enter') checkPassword();
+  });
+  document.getElementById('poster-msg').addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submitBirthdayMessage();
   });
 });
 </script>
@@ -745,8 +750,13 @@ if (sessionStorage.getItem('auth') === '1' || isPreview) {
 
 // Allow Enter key on password field
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('pw-btn').addEventListener('click', checkPassword);
+  document.getElementById('submit-btn').addEventListener('click', submitBirthdayMessage);
   document.getElementById('pw-input').addEventListener('keydown', e => {
     if (e.key === 'Enter') checkPassword();
+  });
+  document.getElementById('poster-msg').addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submitBirthdayMessage();
   });
 });
 
